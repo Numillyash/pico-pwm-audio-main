@@ -5,7 +5,7 @@
 #include "hardware/sync.h" // wait for interrupt 
  
 // Audio PIN is to match some of the design guide shields. 
-#define AUDIO_PIN 12  // you can change this to whatever you like
+#define AUDIO_PIN 25  // you can change this to whatever you like
 
 /* 
  * This include brings in static arrays which contain audio samples. 
@@ -14,8 +14,8 @@
  */
 #include "sounddata.h"
 int wav_position = 0;
-int WAV_DATA_LENGTH = 15623;
-int WAV_DATA[WAV_DATA_LENGTH];
+//int WAV_DATA_LENGTH = 15623;
+//uint8_t WAV_DATA[15623];
 /*
  * PWM Interrupt Handler which outputs PWM level and advances the 
  * current sample. 
@@ -80,13 +80,13 @@ int main(void) {
      *  4.0f for 22 KHz
      *  2.0f for 44 KHz etc
      */
-    pwm_config_set_clkdiv(&config, 11.0f); 
+    pwm_config_set_clkdiv(&config, 8.0f); 
     pwm_config_set_wrap(&config, 250); 
     pwm_init(audio_pin_slice, &config, true);
 
     pwm_set_gpio_level(AUDIO_PIN, 0);
     
-    choose_sample(-1);    
+    //choose_sample(-1);    
     
     while(1) {
         __wfi(); // Wait for Interrupt
