@@ -5,7 +5,7 @@
 #include "hardware/sync.h" // wait for interrupt 
  
 // Audio PIN is to match some of the design guide shields. 
-#define AUDIO_PIN 28  // you can change this to whatever you like
+#define AUDIO_PIN 12  // you can change this to whatever you like
 
 /* 
  * This include brings in static arrays which contain audio samples. 
