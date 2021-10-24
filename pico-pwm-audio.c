@@ -14,7 +14,8 @@
  */
 #include "sample.h"
 int wav_position = 0;
-
+int WAV_DATA_LENGTH = 15623;
+int WAV_DATA[WAV_DATA_LENGTH];
 /*
  * PWM Interrupt Handler which outputs PWM level and advances the 
  * current sample. 
@@ -33,6 +34,19 @@ void pwm_interrupt_handler() {
     } else {
         // reset to start
         wav_position = 0;
+    }
+}
+
+void choose_sample(int i)
+{
+    wav_position = 0;
+    switch(i){
+        case -1:
+            WAV_DATA_LENGTH = len_s;
+            for (int x = 0; x < WAV_DATA_LENGTH; x++)
+            {
+                WAV_DATA[x] = samp_s[x];
+            }
     }
 }
 
@@ -71,7 +85,9 @@ int main(void) {
     pwm_init(audio_pin_slice, &config, true);
 
     pwm_set_gpio_level(AUDIO_PIN, 0);
-
+    
+    choose_sample(-1);    
+    
     while(1) {
         __wfi(); // Wait for Interrupt
     }
