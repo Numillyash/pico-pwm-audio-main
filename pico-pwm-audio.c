@@ -12,7 +12,7 @@
  * if you want to know how to make these please see the python code
  * for converting audio samples into static arrays. 
  */
-#include "sample.h"
+#include "sounddata.h"
 int wav_position = 0;
 int WAV_DATA_LENGTH = 15623;
 int WAV_DATA[WAV_DATA_LENGTH];
