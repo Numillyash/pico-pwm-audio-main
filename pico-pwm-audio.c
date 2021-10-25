@@ -12,7 +12,7 @@
  * if you want to know how to make these please see the python code
  * for converting audio samples into static arrays. 
  */
-#include "sounddata.h"
+#include "sounddata_test.h"
 int wav_position = 0;
 //int WAV_DATA_LENGTH = 15623;
 //uint8_t WAV_DATA[15623];
@@ -36,7 +36,7 @@ void pwm_interrupt_handler() {
         wav_position = 0;
     }
 }
-
+/*
 void choose_sample(int i)
 {
     wav_position = 0;
@@ -49,7 +49,7 @@ void choose_sample(int i)
             }
     }
 }
-
+*/
 int main(void) {
     /* Overclocking for fun but then also so the system clock is a 
      * multiple of typical audio sampling rates.
