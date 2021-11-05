@@ -49,6 +49,12 @@ void choose_sample(int i)
             {
                 WAV_DATA[x] = samp_s[x];
             }
+        case 0:
+            WAV_DATA_LENGTH = len_0;
+            for (int x = 0; x < WAV_DATA_LENGTH; x++)
+            {
+                WAV_DATA[x] = samp_0[x];
+            }
     }
 }
 
@@ -98,5 +104,5 @@ int main(void) {
     pwm_set_gpio_level(AUDIO_PIN, 0);
 
     playSample(-1);
-
+    playSample(0);
 }
