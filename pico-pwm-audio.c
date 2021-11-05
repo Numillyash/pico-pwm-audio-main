@@ -103,6 +103,6 @@ int main(void) {
 
     pwm_set_gpio_level(AUDIO_PIN, 0);
 
-    playSample(-1);
+    //playSample(-1);
     playSample(0);
 }
