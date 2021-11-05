@@ -13,9 +13,10 @@
  * for converting audio samples into static arrays. 
  */
 #include "sounddata.h"
+char isPlaying = 0;
 int wav_position = 0;
-//int WAV_DATA_LENGTH = 15623;
-//uint8_t WAV_DATA[15623];
+int WAV_DATA_LENGTH = 21482;
+uint8_t WAV_DATA[21482];
 /*
  * PWM Interrupt Handler which outputs PWM level and advances the 
  * current sample. 
@@ -33,10 +34,11 @@ void pwm_interrupt_handler() {
         wav_position++;
     } else {
         // reset to start
+        isPlaying = 0;
         wav_position = 0;
     }
 }
-/*
+
 void choose_sample(int i)
 {
     wav_position = 0;
@@ -49,7 +51,16 @@ void choose_sample(int i)
             }
     }
 }
-*/
+
+void playSample(int n)
+{
+    choose_sample(n);
+    isPlaying = 1;
+    while(isPlaying == 1) {
+        __wfi(); // Wait for Interrupt
+    }
+}
+
 int main(void) {
     /* Overclocking for fun but then also so the system clock is a 
      * multiple of typical audio sampling rates.
@@ -85,10 +96,7 @@ int main(void) {
     pwm_init(audio_pin_slice, &config, true);
 
     pwm_set_gpio_level(AUDIO_PIN, 0);
-    
-    //choose_sample(-1);    
-    
-    while(1) {
-        __wfi(); // Wait for Interrupt
-    }
+
+    playSample(-1);
+
 }
