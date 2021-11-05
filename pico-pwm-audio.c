@@ -5,14 +5,14 @@
 #include "hardware/sync.h" // wait for interrupt 
  
 // Audio PIN is to match some of the design guide shields. 
-#define AUDIO_PIN 25  // you can change this to whatever you like
+#define AUDIO_PIN 20  // you can change this to whatever you like
 
 /* 
  * This include brings in static arrays which contain audio samples. 
  * if you want to know how to make these please see the python code
  * for converting audio samples into static arrays. 
  */
-#include "sounddata_test.h"
+#include "sounddata.h"
 int wav_position = 0;
 //int WAV_DATA_LENGTH = 15623;
 //uint8_t WAV_DATA[15623];
