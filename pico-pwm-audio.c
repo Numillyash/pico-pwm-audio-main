@@ -16,7 +16,7 @@
 char isPlaying = 0;
 int wav_position = 0;
 int WAV_DATA_LENGTH = 21482;
-uint8_t WAV_DATA[21482];
+uint8_t *WAV_DATA;
 /*
  * PWM Interrupt Handler which outputs PWM level and advances the 
  * current sample. 
@@ -34,6 +34,7 @@ void pwm_interrupt_handler() {
         wav_position++;
     } else {
         // reset to start
+        pwm_set_gpio_level(AUDIO_PIN, 0);
         isPlaying = 0;
         wav_position = 0;
     }
@@ -41,20 +42,22 @@ void pwm_interrupt_handler() {
 
 void choose_sample(int i)
 {
+    printf("Playing %d sample\n", &i);
+
     wav_position = 0;
     switch(i){
         case -1:
             WAV_DATA_LENGTH = len_s;
-            for (int x = 0; x < WAV_DATA_LENGTH; x++)
-            {
-                WAV_DATA[x] = samp_s[x];
-            }
+            //for (int x = 0; x < WAV_DATA_LENGTH; x++)
+            //{
+                WAV_DATA = samp_s;
+            //}
         case 0:
             WAV_DATA_LENGTH = len_0;
-            for (int x = 0; x < WAV_DATA_LENGTH; x++)
-            {
-                WAV_DATA[x] = samp_0[x];
-            }
+            //for (int x = 0; x < WAV_DATA_LENGTH; x++)
+            //{
+                WAV_DATA = samp_0;
+            //}
     }
 }
 
@@ -103,6 +106,8 @@ int main(void) {
 
     pwm_set_gpio_level(AUDIO_PIN, 0);
 
-    //playSample(-1);
+
+
+    playSample(-1);
     playSample(0);
 }
