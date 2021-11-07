@@ -42,7 +42,7 @@ void pwm_interrupt_handler() {
 
 void choose_sample(int i)
 {
-    printf("Playing %d sample\n", &i);
+    printf("Playing %d sample\n", i);
 
     wav_position = 0;
     switch(i){
