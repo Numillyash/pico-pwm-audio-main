@@ -1,0 +1,9 @@
+"C:\Program Files\JetBrains\CLion 2021.2.1\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - MinGW Makefiles" C:\Users\ulgeo\pico-pwm-audio-main
+CMake Error at pico_sdk_import.cmake:44 (message):
+  PICO SDK location was not specified.  Please set PICO_SDK_PATH or set
+  PICO_SDK_FETCH_FROM_GIT to on to fetch from git.
+Call Stack (most recent call first):
+  CMakeLists.txt:13 (include)
+
+
+-- Configuring incomplete, errors occurred!
