@@ -239,7 +239,7 @@ int main(void) {
     while(true){
         for(int i = 0; i < msg1_len; i++)
         {
-            playSample(message1[i]);
+            playSample((int)message1[i]);
         }
     }
 }
