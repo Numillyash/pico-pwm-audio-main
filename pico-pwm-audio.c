@@ -42,18 +42,19 @@ void pwm_interrupt_handler() {
 
 void choose_sample(int i)
 {
-    printf("Playing %d sample\n", i);
 
     wav_position = 0;
     switch(i){
         case -1:
             WAV_DATA_LENGTH = len_s;
+            printf("Playing %d sample\n", -1);
             //for (int x = 0; x < WAV_DATA_LENGTH; x++)
             //{
                 WAV_DATA = samp_s;
             //}
         case 0:
             WAV_DATA_LENGTH = len_0;
+            printf("Playing %d sample\n", 0);
             //for (int x = 0; x < WAV_DATA_LENGTH; x++)
             //{
                 WAV_DATA = samp_0;
