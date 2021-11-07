@@ -51,6 +51,7 @@ void choose_sample(int i)
             //for (int x = 0; x < WAV_DATA_LENGTH; x++)
             //{
                 WAV_DATA = samp_s;
+                break;
             //}
         case 0:
             WAV_DATA_LENGTH = len_0;
@@ -58,7 +59,18 @@ void choose_sample(int i)
             //for (int x = 0; x < WAV_DATA_LENGTH; x++)
             //{
                 WAV_DATA = samp_0;
+                break;
             //}
+        case 1:
+            WAV_DATA_LENGTH = len_1;
+            printf("Playing %d sample\n", 1);
+            WAV_DATA = samp_1;
+            break;
+        case 2:
+            WAV_DATA_LENGTH = len_2;
+            printf("Playing %d sample\n", 2);
+            WAV_DATA = samp_2;
+            break;
     }
 }
 
@@ -113,5 +125,7 @@ int main(void) {
     while(true){
     playSample(-1);
     playSample(0);
+    playSample(1);
+    playSample(2);
     }
 }
