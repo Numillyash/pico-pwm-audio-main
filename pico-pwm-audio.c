@@ -64,6 +64,8 @@ void choose_sample(int i)
 void playSample(int n)
 {
     choose_sample(n);
+    printf("Playing %d sample\n", n);
+
     isPlaying = 1;
     while(isPlaying == 1) {
         __wfi(); // Wait for Interrupt
