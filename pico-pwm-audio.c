@@ -13,6 +13,7 @@
  * for converting audio samples into static arrays. 
  */
 #include "sounddata.h"
+#include "message.h"
 char isPlaying = 0;
 int wav_position = 0;
 int WAV_DATA_LENGTH = 21482;
@@ -47,29 +48,142 @@ void choose_sample(int i)
     switch(i){
         case -1:
             WAV_DATA_LENGTH = len_s;
-            printf("Playing %d sample\n", -1);
-            //for (int x = 0; x < WAV_DATA_LENGTH; x++)
-            //{
-                WAV_DATA = samp_s;
-                break;
-            //}
+            WAV_DATA = samp_s;
+            break;
+
         case 0:
             WAV_DATA_LENGTH = len_0;
-            printf("Playing %d sample\n", 0);
-            //for (int x = 0; x < WAV_DATA_LENGTH; x++)
-            //{
-                WAV_DATA = samp_0;
-                break;
-            //}
+            WAV_DATA = samp_0;
+            break;
+
         case 1:
             WAV_DATA_LENGTH = len_1;
-            printf("Playing %d sample\n", 1);
             WAV_DATA = samp_1;
             break;
+
         case 2:
             WAV_DATA_LENGTH = len_2;
-            printf("Playing %d sample\n", 2);
             WAV_DATA = samp_2;
+            break;
+
+        case 3:
+            WAV_DATA_LENGTH = len_3;
+            WAV_DATA = samp_3;
+            break;
+
+        case 4:
+            WAV_DATA_LENGTH = len_4;
+            WAV_DATA = samp_4;
+            break;
+
+        case 5:
+            WAV_DATA_LENGTH = len_5;
+            WAV_DATA = samp_5;
+            break;
+
+        case 6:
+            WAV_DATA_LENGTH = len_6;
+            WAV_DATA = samp_6;
+            break;
+
+        case 7:
+            WAV_DATA_LENGTH = len_7;
+            WAV_DATA = samp_7;
+            break;
+
+        case 8:
+            WAV_DATA_LENGTH = len_8;
+            WAV_DATA = samp_8;
+            break;
+
+        case 9:
+            WAV_DATA_LENGTH = len_9;
+            WAV_DATA = samp_9;
+            break;
+
+        case 10:
+            WAV_DATA_LENGTH = len_10;
+            WAV_DATA = samp_10;
+            break;
+
+        case 11:
+            WAV_DATA_LENGTH = len_11;
+            WAV_DATA = samp_11;
+            break;
+
+        case 12:
+            WAV_DATA_LENGTH = len_12;
+            WAV_DATA = samp_12;
+            break;
+
+        case 13:
+            WAV_DATA_LENGTH = len_13;
+            WAV_DATA = samp_13;
+            break;
+
+        case 14:
+            WAV_DATA_LENGTH = len_14;
+            WAV_DATA = samp_14;
+            break;
+
+        case 15:
+            WAV_DATA_LENGTH = len_15;
+            WAV_DATA = samp_15;
+            break;
+
+        case 16:
+            WAV_DATA_LENGTH = len_16;
+            WAV_DATA = samp_16;
+            break;
+
+        case 17:
+            WAV_DATA_LENGTH = len_17;
+            WAV_DATA = samp_17;
+            break;
+
+        case 18:
+            WAV_DATA_LENGTH = len_18;
+            WAV_DATA = samp_18;
+            break;
+
+        case 19:
+            WAV_DATA_LENGTH = len_19;
+            WAV_DATA = samp_19;
+            break;
+
+        case 20:
+            WAV_DATA_LENGTH = len_20;
+            WAV_DATA = samp_20;
+            break;
+
+        case 21:
+            WAV_DATA_LENGTH = len_21;
+            WAV_DATA = samp_21;
+            break;
+
+        case 22:
+            WAV_DATA_LENGTH = len_22;
+            WAV_DATA = samp_22;
+            break;
+
+        case 23:
+            WAV_DATA_LENGTH = len_23;
+            WAV_DATA = samp_23;
+            break;
+
+        case 24:
+            WAV_DATA_LENGTH = len_24;
+            WAV_DATA = samp_24;
+            break;
+
+        case 25:
+            WAV_DATA_LENGTH = len_25;
+            WAV_DATA = samp_25;
+            break;
+
+        case 26:
+            WAV_DATA_LENGTH = len_e;
+            WAV_DATA = samp_e;
             break;
     }
 }
@@ -123,9 +237,9 @@ int main(void) {
 
 
     while(true){
-    playSample(-1);
-    playSample(0);
-    playSample(1);
-    playSample(2);
+        for(int i = 0; i < msg1_len; i++)
+        {
+            playSample(message1[i]);
+        }
     }
 }
